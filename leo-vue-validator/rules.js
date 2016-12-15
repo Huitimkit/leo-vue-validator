@@ -25,7 +25,7 @@ export const ruleFn = {
         }
         cb()
     },
-    password(val, rule, item) {
+    password(val, rule, item, cb) {
         const tip = '密码6-16位'
         if(passwordRe.test(val)) {
             item.state = 1
@@ -34,6 +34,7 @@ export const ruleFn = {
             item.state = 2
             item.msg = rule.tip ? rule.tip : tip
         }
+        cb()
     },
     required(val, rule, item, cb) {
         const tip = '必填!'
